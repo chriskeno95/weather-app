@@ -17,13 +17,19 @@
 
 <nav class="navbar navbar-light bg-primary">
   <a class="navbar-brand" href="#">
-    <img src="./assets/images/cloudwatch-logo.png" height="50" alt="cloudwatch-logo">
+    <img src="./assets/images/cloudwatch-logo.png" height="50px" alt="cloudwatch-logo">
   </a>
 </nav>
 <section id="main" class="">
 <div class="moment m-3">
     <div class="jumbotron jumbotron-fluid bg-white">
-  <div class="container">
+     <div class="container searchedData">
+        <h2 id="SearchedTitle"></h2>
+     </div>
+      <div class="m-3 text-center" id="weatherData">
+            <ul class="list-group list-group-horizontal data-Values d-flex justify-content-center m-2 "></ul>
+        </div>
+  <div class="container timeAndDate">
     <h1 class="display-4 text-center" id="currentDate"></h1>
     <h2 class="display-5 text-center" id="currentTime"></h2>
   </div>
@@ -34,13 +40,13 @@
         <div class="input-group">
   <input id="search" type="text" class="form-control border-primary border-right-0" placeholder="Search City" aria-label="city weather search">
   <div class="input-group-append">
-    <button class="btn border border-left-0 border-primary search" type="submit" id="button"><img src="./assets/images/search-icon.png" width="20x"></button>
+    <button class="btn border border-left-0 border-primary search" type="submit" id="button"><img src="./assets/images/search-icon.png" width="20px"></button>
   </div>
 </div>
     </div>
 </div>
 <div class="mt-5 mx-2">
-    <div id="suggestions" class="mx-3 text-center show ">
+    <div id="suggestions" class="mx-3 text-center">
   <button class="btn btn-primary m-1 rounded-pill location" value="London" type="submit">LONDON</button>
   <button class="btn btn-primary m-1 rounded-pill location" value="paris" type="submit">PARIS</button>
   <button class="btn btn-primary m-1 rounded-pill location" value="Belfast" type="submit">BELFAST</button>
