@@ -20,10 +20,13 @@ locationBtn.on("click", function() {
 
 
   searchBtn.on("click", function() {
-  var searchLocation = $("#search").val().trim();
-  alert("search location is" + searchLocation);
+  var searchedLocation = $("#search").val().trim();
+  localStorage.setItem(searchedLocation,searchedLocation);
 
+  alert("search location is" + searchedLocation);
 
+  //let newSuggestion = searchLocation;
+  //$("button").
 })
 
   })
