@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="./assets/reset.css">
+    <link rel="stylesheet" href="./assets/style.css">
     <title>CloudWatch</title>
   </head>
   <body>
@@ -20,32 +21,32 @@
     <img src="./assets/images/cloudwatch-logo.png" height="50" alt="cloudwatch-logo">
   </a>
 </nav>
-<section id="search-screen">
+<section id="main" class="">
 <div class="moment m-3">
     <div class="jumbotron jumbotron-fluid bg-white">
   <div class="container">
-    <h1 class="display-4 text-center" id="date">Friday 3rd Feburary</h1>
-    <h2 class="display-5 text-center" id="time">22:13</h2>
+    <h1 class="display-4 text-center" id="currentDate"></h1>
+    <h2 class="display-5 text-center" id="currentTime"></h2>
   </div>
 </div>
 </div>
 <div class="container w-50">
-    <div class="search-bar ">
+    <div class="search-bar">
         <div class="input-group">
-  <input type="text" class="form-control border-primary border-right-0" placeholder="Search City" aria-label="Recipient's username" aria-describedby="button-addon2">
+  <input id="search" type="text" class="form-control border-primary border-right-0" placeholder="Search City" aria-label="city weather search">
   <div class="input-group-append">
-    <button class="btn border border-left-0 border-primary" type="button" id="button"><img src="./assets/images/search-icon.png" width="20x"></button>
+    <button class="btn border border-left-0 border-primary search" type="button" id="button"><img src="./assets/images/search-icon.png" width="20x"></button>
   </div>
 </div>
     </div>
 </div>
 <div class="mt-5 mx-2">
-    <div id="suggestions" class="mx-3 text-center">
-  <button class="btn btn-primary m-1 rounded-pill" value="london" type="submit">London</button>
-  <button class="btn btn-primary m-1 rounded-pill" value="paris" type="submit">Paris</button>
-  <button class="btn btn-primary m-1 rounded-pill" value="belfast" type="submit">Belfast</button>
-  <button class="btn btn-primary m-1 rounded-pill" value="Dublin" type="submit">Dublin</button>
-  <button class="btn btn-primary m-1 rounded-pill" value="amsterdam" type="submit">Amsterdam</button>
+    <div id="suggestions" class="mx-3 text-center show">
+  <button class="btn btn-primary m-1 rounded-pill location" value="London" type="submit">London</button>
+  <button class="btn btn-primary m-1 rounded-pill location" value="paris" type="submit">Paris</button>
+  <button class="btn btn-primary m-1 rounded-pill location" value="Belfast" type="submit">Belfast</button>
+  <button class="btn btn-primary m-1 rounded-pill location" value="Dublin" type="submit">Dublin</button>
+  <button class="btn btn-primary m-1 rounded-pill location" value="Amsterdam" type="submit">Amsterdam</button>
 </div>
 </section>
 
