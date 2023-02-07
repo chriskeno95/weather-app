@@ -74,7 +74,8 @@ function callForecastWeather(weatherData){
 
     })
    console.log(futureForecast)
-    for(let i = 0; i < futureForecast.length; i++){
+    for(let i = 0; i < 5; i++){
+
         let iconURL = openWeatherMapImgURL + futureForecast[i].weather[0].icon + ".png";
         console.log(iconURL)
 

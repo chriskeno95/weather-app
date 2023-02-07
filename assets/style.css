@@ -43,16 +43,20 @@ h1{
 }
 
 .title {
+    width: 100%;
+    margin: 0px;
+    padding: 7px;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
     background-color: #F9F7F7!important;
     color: #0062DB!important;
+    font-size: 20px;
     
 }
 .card {
-    border: solid 4px #0062DB;
+    border: solid 3px #0062DB;
     background-color:#0062DB!important;
-    border-radius: 7px;
+    border-radius: 8px;
     padding: 0px;
 
 }
@@ -64,4 +68,7 @@ h1{
 }
 .forecast{
     margin: 5px;
+}
+.row {
+    justify-content: space-evenly;
 }
