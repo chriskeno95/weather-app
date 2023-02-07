@@ -1,7 +1,9 @@
 $(document).ready(function(){
+    $(".re-search").addClass("hide")
 
 const APIKey = "b126ab1310c05c69b64388237ff59e49"
 var city;
+var openWeatherMapImgURL = "http://openweathermap.org/img/w/"
 var weatherAPIURL = "http://api.openweathermap.org"
 //var weatherQueryURL = "http://api.openweathermap.org/data/2.5/weather?q=";
 //console.log(city);
@@ -16,6 +18,7 @@ var currentTime = $("#currentTime");
 var suggestions = $("#suggestions");
 var userSearch = $("#search").val().trim().toUpperCase()
 var list = $(".data-Values");
+var forecast = $(".forecast");
 
 
 window.setInterval(function () {
@@ -51,6 +54,66 @@ function callWeatherReport(city, weatherData){
     //cardBody.attr("class", "card-body");
     //card.append(cardBody)
     list.append(tempEl, windEL, humidityEL);
+
+}
+function callForecastWeather(weatherData){
+    let titleCol = $("<div>");
+    let heading =$("<h4>");
+
+    titleCol.attr("class","col-12")
+    heading.text("");
+    titleCol.append(heading)
+
+    forecast.html("")
+
+    forecast.append(titleCol);
+    console.log(weatherData)
+
+    let futureForecast = weatherData.filter(function(forecast){
+        return forecast.dt_txt.includes("12")
+
+    })
+   console.log(futureForecast)
+    for(let i = 0; i < futureForecast.length; i++){
+        let iconURL = openWeatherMapImgURL + futureForecast[i].weather[0].icon + ".png";
+        console.log(iconURL)
+
+    let iconDescription = futureForecast[i].weather[0].description;
+    let tempC = Math.round((futureForecast[i].main.temp-32)*.5556);
+    let humidity = futureForecast[i].main.humidity;
+    let windSpeed = Math.round(futureForecast[i].wind.speed/1.609);
+
+    let col = $("<div>");
+    let card = $("<div>");
+    let cardBody = $("<div>");
+    let cardTitle = $("<h5>");
+    let weatherIcon = $("<img>")
+    let tempEL = $("<p>");
+    let windEL = $("<p>");
+    let humidityEL = $("<p>");
+
+    col.append(card);
+    card.append(cardBody);
+    cardBody.append(cardTitle, weatherIcon, tempEL, windEL, humidityEL);
+
+    col.attr("class", "col-md-2 mb-3 mb-sm-0");
+    card.attr("class", "card bg-primary text-white card-body h-100 text-center");
+    cardTitle.attr("class", "card-title bg-white text-primary text-center title");
+    tempEL.attr("class", "card-text");
+    windEL.attr("class", "card-text");
+    humidityEL.attr("class", "card-text");
+
+    cardTitle.text(moment(futureForecast[i].dt_txt).format("ddd, D MMM "))
+    weatherIcon.attr("src", iconURL);
+    weatherIcon.attr("alt",iconDescription);
+    tempEL.text(`temp: ${tempC}C`);
+    windEL.text(`wind speed:${windSpeed}mph`);
+    humidityEL.text(`humidity: ${humidity}%`);
+
+    forecast.append(col);
+    console.log(col)
+    }
+
 
 }
 
@@ -94,7 +157,7 @@ function fetchWeather(location){
         }).then(function(response){
             console.log(response.list[0])
             callWeatherReport(city,response.list[0]);
-        //callForecastWeather(response.list);
+        callForecastWeather(response.list);
         })
 
     }
@@ -143,9 +206,10 @@ function clickSearchHistory(event) {
         return
     }
     let location = $(event.target).attr("value");
-    alert("button clicked " + location)
+    //alert("button clicked " + location)
 
     getCoordinates(location);
+    $(".re-search").removeClass("hide");
    
 }
 
@@ -171,6 +235,8 @@ suggestions.on("click",clickSearchHistory)
     createLocation(searchedLocation)
     $("#search").val('');
     console.log(city)
+    $(".re-search").removeClass("hide");
+    
     return city
     })
 
@@ -193,6 +259,12 @@ function createLocation(searchedLocation){
 }
 
 
+$(".refresh").on("click",function(){
+location.reload()
+})
+$(".re-search").on("click",function(){
+location.reload()
+})
 
 
 

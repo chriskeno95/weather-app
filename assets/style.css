@@ -1,14 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Roboto:wght@300;400;900&display=swap');
 
+
 .hide {
-    display: none;
+    display: none!important;
 }
 .show {
-    display: block;
+    display: block!important;
 }
 
 .icon{
     padding:.4em;
+    height: 120px;
     }
 
 body {
@@ -33,4 +35,33 @@ h2 {
 h1{
     font-family: 'Roboto', sans-serif!;
     font-weight: 800;
+}
+.jumbotron{
+    padding-top:10px;
+    padding-bottom: 10px;
+    margin-bottom: 0px;
+}
+
+.title {
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    background-color: #F9F7F7!important;
+    color: #0062DB!important;
+    
+}
+.card {
+    border: solid 4px #0062DB;
+    background-color:#0062DB!important;
+    border-radius: 7px;
+    padding: 0px;
+
+}
+.card-text{
+    padding: 0px 4px;
+}
+.col-md-2 {
+    padding: 2px;
+}
+.forecast{
+    margin: 5px;
 }
