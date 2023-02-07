@@ -3,8 +3,8 @@ $(document).ready(function(){
 
 const APIKey = "b126ab1310c05c69b64388237ff59e49"
 var city;
-var openWeatherMapImgURL = "http://openweathermap.org/img/w/"
-var weatherAPIURL = "http://api.openweathermap.org"
+var openWeatherMapImgURL = "https://openweathermap.org/img/w/"
+var weatherAPIURL = "https://api.openweathermap.org"
 //var weatherQueryURL = "http://api.openweathermap.org/data/2.5/weather?q=";
 //console.log(city);
 const userHistoryArr = localStorage.getItem("locations") ? JSON.parse(localStorage.getItem("locations")) : []
